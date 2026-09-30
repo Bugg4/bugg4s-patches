@@ -43,6 +43,10 @@ It checks that the installer is the Play Store and verifies the license with Pla
   the gauges panel and the DTC-clearing flow (`GaugesPanelRun*Ad`, `ClearDtcAdsShowMessage`).
 - Ad unit IDs live in the .NET assemblies blob.
 - The app has an ad-free IAP (`OplMonitorAdFree1yPeriod`) — purchase logic is untouched.
+- SDK fingerprints are pinned to exact dex signatures; verify against the APK with
+  `~/Android/Sdk/build-tools/36.0.0/dexdump` (unzip `classes*.dex` first). Watch out:
+  `AdManagerAdRequest` is in `com.google.android.gms.ads.admanager` and
+  `AppOpenAdLoadCallback` is a nested class (`AppOpenAd$AppOpenAdLoadCallback`).
 
 ## Update checks
 

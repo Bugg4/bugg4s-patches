@@ -46,7 +46,7 @@ internal object RewardedAdLoadAdManagerFingerprint : Fingerprint(
     parameters = listOf(
         "Landroid/content/Context;",
         "Ljava/lang/String;",
-        "Lcom/google/android/gms/ads/AdManagerAdRequest;",
+        "Lcom/google/android/gms/ads/admanager/AdManagerAdRequest;",
         "Lcom/google/android/gms/ads/rewarded/RewardedAdLoadCallback;",
     ),
     returnType = "V",
@@ -70,7 +70,7 @@ internal object RewardedInterstitialAdLoadAdManagerFingerprint : Fingerprint(
     parameters = listOf(
         "Landroid/content/Context;",
         "Ljava/lang/String;",
-        "Lcom/google/android/gms/ads/AdManagerAdRequest;",
+        "Lcom/google/android/gms/ads/admanager/AdManagerAdRequest;",
         "Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAdLoadCallback;",
     ),
     returnType = "V",
@@ -83,7 +83,7 @@ internal object AppOpenAdLoadFingerprint : Fingerprint(
         "Landroid/content/Context;",
         "Ljava/lang/String;",
         "Lcom/google/android/gms/ads/AdRequest;",
-        "Lcom/google/android/gms/ads/appopen/AppOpenAdLoadCallback;",
+        "Lcom/google/android/gms/ads/appopen/AppOpenAd\$AppOpenAdLoadCallback;",
     ),
     returnType = "V",
 )
@@ -105,6 +105,6 @@ internal object AdLoaderLoadAdsFingerprint : Fingerprint(
 internal object AdLoaderLoadAdManagerFingerprint : Fingerprint(
     definingClass = "Lcom/google/android/gms/ads/AdLoader;",
     name = "loadAd",
-    parameters = listOf("Lcom/google/android/gms/ads/AdManagerAdRequest;"),
+    parameters = listOf("Lcom/google/android/gms/ads/admanager/AdManagerAdRequest;"),
     returnType = "V",
 )
