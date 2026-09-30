@@ -104,6 +104,21 @@ original XAPK:
 2. Add **Spoof app version** → verify no update prompt appears (about screen shows spoofed version).
 3. If the update prompt persists → iterate (spoof `versionCode` too, or reconsider internet removal).
 
+## Purchases / premium
+
+The patches do not modify or bypass Google Play Billing or the app's purchase logic.
+The only license-adjacent change is the PairIP installer-source spoof, which grants
+no entitlements — it only skips the "installed from Play Store" startup check.
+
+Important caveat: patched installs are re-signed and sideloaded, and Google Play
+purchases are tied to the app signature. In practice, premium purchases (ad-free period,
+paid "Functions", all-modules DTC subscription) will usually **not** be recognized in a
+patched install. The purchases remain safe on the Google account, and a Play-installed
+app keeps them — nothing is lost or revoked.
+
+To keep premium purchases working together with patches, install via **root mount**
+(Morphe Manager), which preserves the original Play install identity and signature.
+
 ## Device testing status
 
 | Patch | Status |
