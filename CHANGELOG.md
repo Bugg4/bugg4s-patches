@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/Bugg4/bugg4s-patches/compare/v1.0.0...v1.1.0) (2026-09-30)
+
+### ✨ New Features
+
+* Add Change installer source patch for PairIP startup check ([ee7e89c](https://github.com/Bugg4/bugg4s-patches/commit/ee7e89c9a2e60c1cafd9f1a0383fa967440abd87))
+
 ## [1.1.0-dev.1](https://github.com/Bugg4/bugg4s-patches/compare/v1.0.0...v1.1.0-dev.1) (2026-09-30)
 
 ### ✨ New Features
