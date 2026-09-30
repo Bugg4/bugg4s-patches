@@ -29,10 +29,15 @@ Consequences:
 
 `com.pairip.licensecheck` (LicenseContentProvider → LicenseClient) runs at app startup.
 It checks that the installer is the Play Store and verifies the license with Play.
+Repacked/re-signed builds otherwise get a "download from Google Play" paywall
+(`LicenseActivity`) and the app closes.
 
-- Repacked/re-signed builds may show a license dialog or exit.
-- **Verify the patched app launches on first device test before building out more patches.**
-- License/tamper logic is intentionally left untouched by these patches.
+- Fixed by the `Change installer source` patch, which spoofs the installer source
+  (`InstallSourceInfo.getInstallingPackageName()` and related calls) so PairIP's local
+  installer check passes. No license/tamper logic is modified.
+- Alternatives without code changes: install via root mount (Morphe Manager), which keeps
+  the original Play install identity, or install with the installer recorded as
+  `com.android.vending` (`pm install -i com.android.vending`).
 
 ## Ads
 
@@ -72,6 +77,7 @@ Relevant when disabling network access (e.g. "Remove internet permission" patch)
 | Patch | File | Default | Notes |
 |---|---|---|---|
 | Remove ads | `patches/src/main/kotlin/app/bugg4/patches/oplmonitor/ads/RemoveAdsPatch.kt` | on | No-ops all Google Mobile Ads load methods (banner/interstitial/rewarded/rewarded interstitial/app open/native) |
+| Change installer source | `.../misc/ChangeInstallerSourcePatch.kt` | on | Spoofs installer source (`com.android.vending` option); required to pass the PairIP startup license check |
 | Spoof app version | `.../misc/SpoofAppVersionPatch.kt` | off | Manifest `versionName` option (default `9.9.9`) |
 | Remove internet permission | `.../misc/RemoveInternetPermissionPatch.kt` | off | Removes `android.permission.INTERNET`; see table above |
 
