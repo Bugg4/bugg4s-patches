@@ -71,6 +71,19 @@ Relevant when disabling network access (e.g. "Remove internet permission" patch)
 | Spoof app version | `.../misc/SpoofAppVersionPatch.kt` | off | Manifest `versionName` option (default `9.9.9`) |
 | Remove internet permission | `.../misc/RemoveInternetPermissionPatch.kt` | off | Removes `android.permission.INTERNET`; see table above |
 
+## Building locally
+
+Requires JDK 21 (AGP's `jlink` transform fails on newer JDKs such as the system JDK 27).
+A user-local Temurin 21 lives at `~/.local/share/jdks/jdk-21.0.12.1+1`:
+
+```bash
+JAVA_HOME=$HOME/.local/share/jdks/jdk-21.0.12.1+1 ./gradlew buildAndroid
+```
+
+The build needs the GitHub Packages token in `~/.gradle/gradle.properties`
+(`gpr.user` / `gpr.key`, scope `read:packages`).
+Output: `patches/build/libs/patches-<version>.mpp`.
+
 ## Testing checklist
 
 Use [Morphe Desktop](https://github.com/MorpheApp/morphe-desktop/releases/latest) and the
