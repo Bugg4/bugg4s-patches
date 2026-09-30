@@ -32,9 +32,9 @@ It checks that the installer is the Play Store and verifies the license with Pla
 Repacked/re-signed builds otherwise get a "download from Google Play" paywall
 (`LicenseActivity`) and the app closes.
 
-- Fixed by the `Change installer source` patch, which spoofs the installer source
-  (`InstallSourceInfo.getInstallingPackageName()` and related calls) so PairIP's local
-  installer check passes. No license/tamper logic is modified.
+- **Fixed and verified on device (2026-09-30)** by the `Change installer source` patch, which
+  spoofs the installer source (`InstallSourceInfo.getInstallingPackageName()` and related
+  calls) so PairIP's local installer check passes. No license/tamper logic is modified.
 - Alternatives without code changes: install via root mount (Morphe Manager), which keeps
   the original Play install identity, or install with the installer recorded as
   `com.android.vending` (`pm install -i com.android.vending`).
@@ -103,3 +103,12 @@ original XAPK:
    (gauges panel, DTC flow, interstitials) → check VIN decode still works (needs internet).
 2. Add **Spoof app version** → verify no update prompt appears (about screen shows spoofed version).
 3. If the update prompt persists → iterate (spoof `versionCode` too, or reconsider internet removal).
+
+## Device testing status
+
+| Patch | Status |
+|---|---|
+| Change installer source | ✅ Verified — app launches past PairIP (2026-09-30) |
+| Remove ads | ⏳ Needs verification across app screens |
+| Spoof app version | ⏳ Observe for update prompts over time |
+| Remove internet permission | Not tested (not recommended — breaks VIN/DTC/function downloads) |
