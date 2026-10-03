@@ -132,7 +132,12 @@ To keep premium purchases working together with patches, install via **root moun
 
 | Patch | Status |
 |---|---|
-| Change installer source | ✅ Verified — app launches past PairIP (2026-09-30) |
-| Remove ads | ⏳ Needs verification across app screens |
-| Spoof app version | ⏳ Observe for update prompts over time |
+| Change installer source | ✅ Verified — app launches past PairIP on Android 10+ (2026-09-30) |
+| Remove license check | ✅ Verified on Ottocast PICASOU, Android 9 (2026-10-03) |
+| Remove ads | In use since 2026-09-30, no issues reported |
+| Spoof app version | In use since 2026-09-30, no update prompt reported so far |
 | Remove internet permission | Not tested (not recommended — breaks VIN/DTC/function downloads) |
+
+Recommended combinations: on Android 10+ use "Change installer source" (with "Remove ads");
+on Android 9 and older use "Remove license check" instead — the two license patches are
+mutually exclusive, only one is needed.

@@ -19,11 +19,9 @@ private const val LICENSE_CHECK_PROVIDER_PREFIX = "com.pairip.licensecheck."
 @Suppress("unused")
 val removeLicenseCheckPatch = resourcePatch(
     name = "Remove license check",
-    description = "Removes the startup license check (PairIP). Only needed on devices where " +
-        "'Change installer source' cannot work, such as Android 9 and older: there the app " +
-        "always performs a full Google Play license verification, which fails for any " +
-        "sideloaded (patched) install and redirects to Google Play. " +
-        "This grants no entitlements and does not affect purchases or premium features.",
+    description = "Removes the startup license check (PairIP). " +
+        "Use this on Android 9 and older, where 'Change installer source' has no effect. " +
+        "Does not affect purchases or premium features.",
     default = false,
 ) {
     compatibleWith(COMPATIBILITY_OPL_MONITOR)
